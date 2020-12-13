@@ -34,17 +34,17 @@ matrix:
  # PPC64LE suport code
     - |
       if [ $TRAVIS_CPU_ARCH == ppc64le ]; then
-        { stage: django_not_installed, python: 3.6, env: TOXENV=django_not_installed }
-        { stage: django_is_installed, python: 3.6, env: TOXENV=django_is_installed }
-        { stage: test, python: 3.8, env: DJANGO=3.1 }
-        { stage: test, python: 3.6, env: DJANGO=3.0 }
-        { stage: test, python: 3.6, env: DJANGO=2.0 }
-        { stage: test, python: 3.6, env: DJANGO=1.11 }
-        { stage: test, python: 3.6, env: DJANGO=master }
-        { stage: test, python: 3.6, env: TOXENV=flake8 }
-        { stage: test, python: 3.6, env: TOXENV=pylint }
-        { stage: test, python: 3.6, env: TOXENV=readme }
-        { stage: build_and_package_sanity, python: 3.6, env: SANITY_CHECK=1 }   
+        - { stage: django_not_installed, python: 3.6, env: TOXENV=django_not_installed }
+        - { stage: django_is_installed, python: 3.6, env: TOXENV=django_is_installed }
+        - { stage: test, python: 3.8, env: DJANGO=3.1 }
+        - { stage: test, python: 3.6, env: DJANGO=3.0 }
+        - { stage: test, python: 3.6, env: DJANGO=2.0 }
+        - { stage: test, python: 3.6, env: DJANGO=1.11 }
+        - { stage: test, python: 3.6, env: DJANGO=master }
+        - { stage: test, python: 3.6, env: TOXENV=flake8 }
+        - { stage: test, python: 3.6, env: TOXENV=pylint }
+        - { stage: test, python: 3.6, env: TOXENV=readme }
+        - { stage: build_and_package_sanity, python: 3.6, env: SANITY_CHECK=1 }   
       fi
     - | 
     
