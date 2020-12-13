@@ -32,28 +32,28 @@ matrix:
     - { stage: test, python: 3.6, env: TOXENV=readme }
     - { stage: build_and_package_sanity, python: 3.6, env: SANITY_CHECK=1 }
  # PPC64LE suport code
-    - { stage: django_not_installed, python: 3.6, env: TOXENV=django_not_installed }
-      arch: ppc64le
-    - { stage: django_is_installed, python: 3.6, env: TOXENV=django_is_installed }
-      arch: ppc64le
-    - { stage: test, python: 3.8, env: DJANGO=3.1 }
-      arch: ppc64le
-    - { stage: test, python: 3.6, env: DJANGO=3.0 }
-      arch: ppc64le
-    - { stage: test, python: 3.6, env: DJANGO=2.0 }
-      arch: ppc64le
-    - { stage: test, python: 3.6, env: DJANGO=1.11 }
-      arch: ppc64le
-    - { stage: test, python: 3.6, env: DJANGO=master }
-      arch: ppc64le
-    - { stage: test, python: 3.6, env: TOXENV=flake8 }
-      arch: ppc64le
-    - { stage: test, python: 3.6, env: TOXENV=pylint }
-      arch: ppc64le
-    - { stage: test, python: 3.6, env: TOXENV=readme }
-      arch: ppc64le
-    - { stage: build_and_package_sanity, python: 3.6, env: SANITY_CHECK=1 }   
-      arch: ppc64le
+    - arch: ppc64le
+      { stage: django_not_installed, python: 3.6, env: TOXENV=django_not_installed }
+    - arch: ppc64le
+      { stage: django_is_installed, python: 3.6, env: TOXENV=django_is_installed }
+    - arch: ppc64le
+      { stage: test, python: 3.8, env: DJANGO=3.1 }
+    - arch: ppc64le
+      { stage: test, python: 3.6, env: DJANGO=3.0 }
+    - arch: ppc64le
+      { stage: test, python: 3.6, env: DJANGO=2.0 }
+    - arch: ppc64le
+      { stage: test, python: 3.6, env: DJANGO=1.11 }
+    - arch: ppc64le
+      { stage: test, python: 3.6, env: DJANGO=master }
+    - arch: ppc64le
+      { stage: test, python: 3.6, env: TOXENV=flake8 }
+    - arch: ppc64le
+      { stage: test, python: 3.6, env: TOXENV=pylint }
+    - arch: ppc64le
+      { stage: test, python: 3.6, env: TOXENV=readme }
+    - arch: ppc64le
+      { stage: build_and_package_sanity, python: 3.6, env: SANITY_CHECK=1 }   
     
 before_install:
   - git clone --depth 1 https://github.com/PyCQA/pylint.git --branch 2.4 --single-branch ~/pylint
