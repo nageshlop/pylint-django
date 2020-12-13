@@ -32,21 +32,28 @@ matrix:
     - { stage: test, python: 3.6, env: TOXENV=readme }
     - { stage: build_and_package_sanity, python: 3.6, env: SANITY_CHECK=1 }
  # PPC64LE suport code
-    - |
-      if [ $TRAVIS_CPU_ARCH == ppc64le ]; then
-        - { stage: django_not_installed, python: 3.6, env: TOXENV=django_not_installed }
-        - { stage: django_is_installed, python: 3.6, env: TOXENV=django_is_installed }
-        - { stage: test, python: 3.8, env: DJANGO=3.1 }
-        - { stage: test, python: 3.6, env: DJANGO=3.0 }
-        - { stage: test, python: 3.6, env: DJANGO=2.0 }
-        - { stage: test, python: 3.6, env: DJANGO=1.11 }
-        - { stage: test, python: 3.6, env: DJANGO=master }
-        - { stage: test, python: 3.6, env: TOXENV=flake8 }
-        - { stage: test, python: 3.6, env: TOXENV=pylint }
-        - { stage: test, python: 3.6, env: TOXENV=readme }
-        - { stage: build_and_package_sanity, python: 3.6, env: SANITY_CHECK=1 }   
-      fi
-    - | 
+    - { stage: django_not_installed, python: 3.6, env: TOXENV=django_not_installed }
+      arch: ppc64le
+    - { stage: django_is_installed, python: 3.6, env: TOXENV=django_is_installed }
+      arch: ppc64le
+    - { stage: test, python: 3.8, env: DJANGO=3.1 }
+      arch: ppc64le
+    - { stage: test, python: 3.6, env: DJANGO=3.0 }
+      arch: ppc64le
+    - { stage: test, python: 3.6, env: DJANGO=2.0 }
+      arch: ppc64le
+    - { stage: test, python: 3.6, env: DJANGO=1.11 }
+      arch: ppc64le
+    - { stage: test, python: 3.6, env: DJANGO=master }
+      arch: ppc64le
+    - { stage: test, python: 3.6, env: TOXENV=flake8 }
+      arch: ppc64le
+    - { stage: test, python: 3.6, env: TOXENV=pylint }
+      arch: ppc64le
+    - { stage: test, python: 3.6, env: TOXENV=readme }
+      arch: ppc64le
+    - { stage: build_and_package_sanity, python: 3.6, env: SANITY_CHECK=1 }   
+      arch: ppc64le
     
 before_install:
   - git clone --depth 1 https://github.com/PyCQA/pylint.git --branch 2.4 --single-branch ~/pylint
